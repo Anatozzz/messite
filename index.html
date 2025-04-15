@@ -262,6 +262,9 @@
 
     <!-- Hero Section -->
     <section id="accueil" class="hero-gradient min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+       <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30">
+    <source src="video.mp4" type="video/mp4">
+</video>
         <div class="wave"></div>
         <div class="container mx-auto px-6 py-20 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
@@ -326,7 +329,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="100">
+                <div data-tilt class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up"data-aos-delay="100">
                     <div class="text-bordeaux mb-4 service-icon">
                         <i class="fas fa-laptop-code text-4xl"></i>
                     </div>
@@ -338,7 +341,7 @@
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="200">
+                <div data-tilt class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up"data-aos-delay="200">
                     <div class="text-bordeaux mb-4 service-icon">
                         <i class="fas fa-sync-alt text-4xl"></i>
                     </div>
@@ -350,7 +353,7 @@
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="300">
+                <div data-tilt class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up"data-aos-delay="300">
                     <div class="text-bordeaux mb-4 service-icon">
                         <i class="fas fa-hands-helping text-4xl"></i>
                     </div>
@@ -362,7 +365,7 @@
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="400">
+                <div data-tilt class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up"data-aos-delay="400">
                     <div class="text-bordeaux mb-4 service-icon">
                         <i class="fas fa-cogs text-4xl"></i>
                     </div>
@@ -604,7 +607,9 @@
             </div>
         </div>
     </section>
-
+<div class="fixed bottom-6 right-6 bg-bordeaux text-white p-4 rounded-full shadow-lg cursor-pointer hover:bg-black transition" onclick="alert('Salut 👋 Que puis-je faire pour vous ?')">
+    <i class="fas fa-comment-dots text-2xl"></i>
+</div>
     <!-- Footer -->
     <footer class="bg-black text-white py-12 relative overflow-hidden">
         <div class="light-effect"></div>
@@ -817,3 +822,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
     </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+<script>
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+    });
+</script>
