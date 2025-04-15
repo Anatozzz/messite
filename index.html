@@ -221,6 +221,7 @@
     <!-- Effet de particules -->
     <div id="particles-js" class="particles"></div>
     
+    
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 py-3">
@@ -790,11 +791,23 @@
             });
         });
 
-        // Effet de machine à écrire
-        const typingText = document.querySelector('.typing-text');
-        if (typingText) {
+        <script>
+    // Effet de machine à écrire
+    const typingText = document.querySelector('.typing-text');
+    if (typingText) {
+        setTimeout(() => {
+            typingText.style.borderRight = 'none';
+        }, 3500);
+    }
+
+    // Animation d’intro du logo
+    window.addEventListener('load', () => {
+        const intro = document.getElementById('intro-loader');
+        setTimeout(() => {
+            intro.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
             setTimeout(() => {
-                typingText.style.borderRight = 'none';
-            }, 3500);
-        }
-    </script>
+                intro.style.display = 'none';
+            }, 1000);
+        }, 1500); // Durée d'affichage du logo
+    });
+</script>
