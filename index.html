@@ -220,12 +220,6 @@
 <body class="bg-white text-gray-800">
     <!-- Effet de particules -->
     <div id="particles-js" class="particles"></div>
- <!-- Intro Loader -->
-<div id="intro-loader" class="fixed inset-0 bg-black z-[9999] flex items-center justify-center transition-opacity duration-1000">
-    <div class="text-center animate-pulse">
-        <span class="text-4xl md:text-6xl text-white title-font gold-text tracking-wider">WebÉlégance</span>
-    </div>
-</div>   
     
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
@@ -803,14 +797,3 @@ if (typingText) {
         typingText.style.borderRight = 'none';
     }, 3500);
 }
-
-// Animation d’intro du logo
-window.addEventListener('load', () => {
-    const intro = document.getElementById('intro-loader');
-    if (intro) {
-        intro.classList.add('opacity-0');
-        setTimeout(() => {
-            intro.style.display = 'none';
-        }, 1000); // attendre la transition d'opacité
-    }
-});
