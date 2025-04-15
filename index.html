@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de Sites Web Élégants | Votre présence en ligne professionnelle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-bordeaux {
+            background-color: #6d1a1a;
+        }
+        
+        .text-bordeaux {
+            color: #6d1a1a;
+        }
+        
+        .border-bordeaux {
+            border-color: #6d1a1a;
+        }
+        
+        .hover-gold:hover {
+            color: #d4af37;
+            transition: all 0.3s ease;
+        }
+        
+        .gold-text {
+            color: #d4af37;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(109, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Effet de particules */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        /* Animation du logo */
+        .logo-anim {
+            position: relative;
+        }
+        
+        .logo-anim::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #d4af37;
+            transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .logo-anim:hover::after {
+            width: 100%;
+        }
+        
+        /* Effet de vague */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,32,66.2,0.15,130.61-13.39,185-36.37C443.17,20.39,513.5,6.15,583,2.35c53.55-2.85,106.68,6.34,153,24.69,42.82,16.72,85.9,40.86,128.6,63.41,42.78,22.55,86.7,38.21,132.4,42.36,49.78,4.5,99.76-2.31,147.5-19.66,42.82-15.5,82.6-40.33,116.5-72.53C1193.7,52.25,1203.48,15.54,1200,0Z" fill="%236d1a1a" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%236d1a1a" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%236d1a1a"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+        
+        /* Animation de texte défilant */
+        .typing-text {
+            border-right: 3px solid #d4af37;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #d4af37 }
+        }
+        
+        /* Effet de flottement */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Effet de survol sur les cartes */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #6d1a1a, #d4af37);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+        }
+        
+        .service-icon {
+            transition: transform 0.6s ease;
+        }
+        
+        /* Effet de parallaxe */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Animation du bouton */
+        .btn-gold {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+        
+        /* Effet de lumière */
+        .light-effect {
+            position: relative;
+        }
+        
+        .light-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Effet de particules -->
+    <div id="particles-js" class="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <span class="title-font text-2xl font-bold text-bordeaux logo-anim">WebÉlégance</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-800 hover:text-bordeaux hover-gold font-medium relative group">
+                        Accueil
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#apropos" class="text-gray-800 hover:text-bordeaux hover-gold font-medium relative group">
+                        À propos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="text-gray-800 hover:text-bordeaux hover-gold font-medium relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#realisations" class="text-gray-800 hover:text-bordeaux hover-gold font-medium relative group">
+                        Réalisations
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#temoignages" class="text-gray-800 hover:text-bordeaux hover-gold font-medium relative group">
+                        Témoignages
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-bordeaux transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="bg-bordeaux text-white px-4 py-2 rounded-md hover:bg-black transition duration-300 btn-gold">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="wave"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="title-font text-4xl md:text-6xl font-bold text-white mb-6">
+                        <span class="typing-text">Je conçois des sites web </span><br>
+                        <span class="gold-text">élégants</span> et <span class="gold-text">efficaces</span>
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="300">Pour donner vie à vos projets en ligne et propulser votre présence digitale.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#realisations" class="bg-bordeaux hover:bg-black text-white px-8 py-3 rounded-md font-medium transition duration-300 btn-gold" data-aos="zoom-in" data-aos-delay="500">Voir mes réalisations</a>
+                        <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-bordeaux px-8 py-3 rounded-md font-medium transition duration-300" data-aos="zoom-in" data-aos-delay="600">Me contacter</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative floating">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Création de site web" class="rounded-lg shadow-2xl max-w-md w-full transform transition duration-500 hover:scale-105">
+                        <div class="absolute -inset-4 border-2 border-dashed border-gold rounded-lg opacity-0 hover:opacity-100 transition duration-500 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos Section -->
+    <section id="apropos" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="À propos" class="rounded-lg shadow-lg w-full max-w-md mx-auto transform transition duration-500 hover:scale-105">
+                        <div class="absolute -bottom-6 -right-6 bg-bordeaux text-white p-4 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                            <p class="font-bold text-lg">10+</p>
+                            <p class="text-sm">Années d'expérience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="title-font text-3xl md:text-4xl font-bold text-bordeaux mb-6">À propos de moi</h2>
+                    <p class="text-gray-600 mb-6">Passionné par le web depuis plus de 10 ans, j'ai à cœur de créer des sites internet qui allient esthétique et performance.</p>
+                    <p class="text-gray-600 mb-6">Mon approche est centrée sur vos besoins : comprendre votre activité, vos valeurs et vos objectifs pour concevoir une présence en ligne qui vous ressemble et vous démarque.</p>
+                    <p class="text-gray-600 mb-8">Que vous soyez artisan, commerçant, entrepreneur ou artiste, je m'engage à vous offrir un site web professionnel, adapté à votre public et optimisé pour les moteurs de recherche.</p>
+                    <div class="flex items-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mr-4">
+                            <i class="fas fa-check-circle text-2xl gold-text"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-800">Approche personnalisée</h3>
+                            <p class="text-gray-600">Chaque projet est unique et mérite une attention particulière.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-bordeaux mb-4">Mes Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Des solutions sur mesure pour répondre à tous vos besoins digitaux.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-bordeaux mb-4 service-icon">
+                        <i class="fas fa-laptop-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Création de site vitrine</h3>
+                    <p class="text-gray-600">Site web personnalisé pour présenter votre activité avec élégance et efficacité.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-bordeaux text-white text-xs px-2 py-1 rounded-full">À partir de 990€</span>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-bordeaux mb-4 service-icon">
+                        <i class="fas fa-sync-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Refonte de site existant</h3>
+                    <p class="text-gray-600">Modernisation de votre site actuel pour améliorer son design et ses performances.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-bordeaux text-white text-xs px-2 py-1 rounded-full">À partir de 790€</span>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-bordeaux mb-4 service-icon">
+                        <i class="fas fa-hands-helping text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accompagnement personnalisé</h3>
+                    <p class="text-gray-600">Conseils et formation pour maîtriser votre outil et développer votre présence en ligne.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-bordeaux text-white text-xs px-2 py-1 rounded-full">60€/h</span>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md card-hover service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-bordeaux mb-4 service-icon">
+                        <i class="fas fa-cogs text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Maintenance et mise à jour</h3>
+                    <p class="text-gray-600">Service complet pour garantir le bon fonctionnement et la sécurité de votre site.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-bordeaux text-white text-xs px-2 py-1 rounded-full">À partir de 49€/mois</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations Section -->
+    <section id="realisations" class="py-20 bg-gray-50 parallax" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-white mb-4">Mes Réalisations</h2>
+                <p class="text-gray-200 max-w-2xl mx-auto">Découvrez quelques-uns de mes projets récents.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Alpes Performances" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Alpes Performances</h3>
+                        <p class="text-gray-600 mb-4">Site vitrine pour une entreprise d'entretien d'espaces verts.</p>
+                        <a href="https://alpesperformances.netlify.app/" target="_blank" class="text-bordeaux font-medium hover:text-black transition duration-300 inline-flex items-center">
+                            Voir le projet <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Esprit Création Formation" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Esprit Création Formation</h3>
+                        <p class="text-gray-600 mb-4">Site pour une formatrice indépendante en développement personnel.</p>
+                        <a href="https://espritcreformation.netlify.app/" target="_blank" class="text-bordeaux font-medium hover:text-black transition duration-300 inline-flex items-center">
+                            Voir le projet <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rumilly Nettoyage" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-4">
+                            <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Rumilly Nettoyage</h3>
+                        <p class="text-gray-600 mb-4">Site vitrine pour une société de nettoyage professionnel.</p>
+                        <a href="https://site-rumilly-nettoyage.netlify.app/" target="_blank" class="text-bordeaux font-medium hover:text-black transition duration-300 inline-flex items-center">
+                            Voir le projet <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="bg-bordeaux text-white px-8 py-3 rounded-md font-medium hover:bg-black transition duration-300 btn-gold inline-flex items-center">
+                    Discutons de votre projet <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section id="temoignages" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-bordeaux mb-4">Témoignages</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Ce que mes clients disent de mon travail.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card p-8 rounded-lg transform transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Très professionnel et à l'écoute. Mon nouveau site correspond parfaitement à mes attentes et a déjà généré de nouveaux clients."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie Martin</h4>
+                            <p class="text-gray-500 text-sm">Formatrice indépendante</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card p-8 rounded-lg transform transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Un travail de qualité avec un suivi impeccable. Notre site a été livré dans les délais et dépasse nos espérances."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Pierre Dubois</h4>
+                            <p class="text-gray-500 text-sm">Directeur d'Alpes Performances</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card p-8 rounded-lg transform transition duration-500 hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Réactif et compétent. La refonte de notre site a considérablement amélioré notre image et notre référencement."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Élodie Lambert</h4>
+                            <p class="text-gray-500 text-sm">Gérante de Rumilly Nettoyage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-bordeaux text-white relative overflow-hidden">
+        <div class="light-effect"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">Contactez-moi</h2>
+                <p class="max-w-2xl mx-auto opacity-90">Prêt à donner vie à votre projet web ? Discutons-en !</p>
+            </div>
+            <div class="max-w-4xl mx-auto" data-aos="zoom-in">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-102">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-black p-10 text-white">
+                            <h3 class="title-font text-2xl font-bold mb-6">Informations de contact</h3>
+                            <div class="flex items-start mb-6">
+                                <div class="mr-4 text-gold">
+                                    <i class="fas fa-envelope text-xl gold-text"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <p class="opacity-90">contact@webelegance.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-6">
+                                <div class="mr-4">
+                                    <i class="fas fa-phone-alt text-xl gold-text"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Téléphone</h4>
+                                    <p class="opacity-90">+33 6 12 34 56 78</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-6">
+                                <div class="mr-4">
+                                    <i class="fas fa-map-marker-alt text-xl gold-text"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Localisation</h4>
+                                    <p class="opacity-90">Annecy, France</p>
+                                </div>
+                            </div>
+                            <div class="mt-10">
+                                <h4 class="font-bold mb-4">Suivez-moi</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-white hover-gold text-xl"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="text-white hover-gold text-xl"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="text-white hover-gold text-xl"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="text-white hover-gold text-xl"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-10 text-gray-800">
+                            <h3 class="title-font text-2xl font-bold mb-6 text-bordeaux">Envoyez un message</h3>
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bordeaux">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bordeaux">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                                    <input type="text" id="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bordeaux">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-bordeaux"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-bordeaux text-white py-3 rounded-md font-medium hover:bg-black transition duration-300 btn-gold">Envoyer le message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 relative overflow-hidden">
+        <div class="light-effect"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0" data-aos="fade-right">
+                    <span class="title-font text-2xl font-bold gold-text">WebÉlégance</span>
+                    <p class="mt-2 text-gray-400">Créateur de sites web élégants et efficaces.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end" data-aos="fade-left">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white hover-gold"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white hover-gold"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white hover-gold"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white hover-gold"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2023 WebÉlégance. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-bordeaux text-white w-12 h-12 rounded-full shadow-lg hidden transform transition duration-300 hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialisation des animations
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#d4af37"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#d4af37",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile menu toggle (would need additional implementation)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        mobileMenuButton.addEventListener('click', () => {
+            // This would toggle a mobile menu (not implemented in this example)
+            alert('Menu mobile à implémenter');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Effet de machine à écrire
+        const typingText = document.querySelector('.typing-text');
+        if (typingText) {
+            setTimeout(() => {
+                typingText.style.borderRight = 'none';
+            }, 3500);
+        }
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Anat0Zzz/messites" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
