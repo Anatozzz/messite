@@ -896,38 +896,41 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-    // Chatbot
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatWindow = document.getElementById('chatWindow');
-    const chatMessages = document.getElementById('chatMessages');
-    const sendMessage = document.getElementById('sendMessage');
-    const chatInput = document.getElementById('chatInput');
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatMessages = document.getElementById('chatMessages');
+  const sendMessage = document.getElementById('sendMessage');
+  const chatInput = document.getElementById('chatInput');
 
-    chatbotToggle.addEventListener('click', () => {
-        chatWindow.classList.toggle('hidden');
-    });
+  chatbotToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+  });
 
-    sendMessage.addEventListener('click', () => {
-        const message = chatInput.value.trim();
-        if (message !== '') {
-            const userMessage = document.createElement('div');
-            userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
-            chatMessages.appendChild(userMessage);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            chatInput.value = '';
+  sendMessage.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (message !== '') {
+      const userMessage = document.createElement('div');
+      userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
+      chatMessages.appendChild(userMessage);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      chatInput.value = '';
 
-            setTimeout(() => {
-                const botReply = document.createElement('div');
-                botReply.innerHTML = `<strong>Bot:</strong> Merci pour votre message ! Je vous répondrai très vite. 😊`;
-                chatMessages.appendChild(botReply);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 800);
-        }
-    });
+      // Réponse avec lien WhatsApp
+      setTimeout(() => {
+        const botReply = document.createElement('div');
+        botReply.innerHTML = `
+          <strong>Bot:</strong> Merci pour votre message !<br>
+          📞 <a href="https://wa.me/33681139134" target="_blank" class="text-bordeaux font-bold underline">Discutons sur WhatsApp</a>
+        `;
+        chatMessages.appendChild(botReply);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 800);
+    }
+  });
 
-    chatInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            sendMessage.click();
-        }
-    });
+  chatInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      sendMessage.click();
+    }
+  });
 </script>
