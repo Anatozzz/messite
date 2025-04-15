@@ -642,8 +642,21 @@
             </div>
         </div>
     </section>
-<div class="fixed bottom-6 right-6 bg-bordeaux text-white p-4 rounded-full shadow-lg cursor-pointer hover:bg-black transition" onclick="alert('Salut 👋 Que puis-je faire pour vous ?')">
+<!-- Nouveau ChatBot -->
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <button id="chatbotToggle" class="bg-bordeaux text-white p-4 rounded-full shadow-lg hover:bg-black transition duration-300">
     <i class="fas fa-comment-dots text-2xl"></i>
+  </button>
+  <div id="chatWindow" class="hidden bg-white w-80 h-96 rounded-lg shadow-xl p-4 flex flex-col justify-between text-sm">
+    <div class="text-bordeaux font-bold text-lg mb-2">Assistant WebÉlégance</div>
+    <div id="chatMessages" class="flex-1 overflow-y-auto text-gray-700 space-y-2 mb-2 pr-2">
+      <div><strong>Bot:</strong> Bonjour 👋 Que puis-je faire pour vous aujourd’hui ?</div>
+    </div>
+    <div class="flex">
+      <input id="chatInput" type="text" placeholder="Votre message..." class="flex-1 border rounded-l px-2 py-1 text-sm focus:outline-none focus:ring focus:border-bordeaux">
+      <button id="sendMessage" class="bg-bordeaux text-white px-4 rounded-r">Envoyer</button>
+    </div>
+  </div>
 </div>
     <!-- Footer -->
     <footer class="bg-black text-white py-12 relative overflow-hidden">
@@ -865,4 +878,40 @@ document.addEventListener("DOMContentLoaded", () => {
         glare: true,
         "max-glare": 0.3,
     });
+    <script>
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatMessages = document.getElementById('chatMessages');
+  const sendMessage = document.getElementById('sendMessage');
+  const chatInput = document.getElementById('chatInput');
+
+  chatbotToggle.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+  });
+
+  sendMessage.addEventListener('click', () => {
+    const message = chatInput.value.trim();
+    if (message !== '') {
+      const userMessage = document.createElement('div');
+      userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
+      chatMessages.appendChild(userMessage);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      chatInput.value = '';
+
+      // Réponse automatique simple
+      setTimeout(() => {
+        const botReply = document.createElement('div');
+        botReply.innerHTML = `<strong>Bot:</strong> Merci pour votre message ! Je vous répondrai très vite. 😊`;
+        chatMessages.appendChild(botReply);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 800);
+    }
+  });
+
+  chatInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      sendMessage.click();
+    }
+  });
+</script>
 </script>
