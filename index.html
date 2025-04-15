@@ -791,23 +791,23 @@
             });
         });
 
-        <script>
-    // Effet de machine à écrire
-    const typingText = document.querySelector('.typing-text');
-    if (typingText) {
-        setTimeout(() => {
-            typingText.style.borderRight = 'none';
-        }, 3500);
-    }
+        // Effet de machine à écrire
+const typingText = document.querySelector('.typing-text');
+if (typingText) {
+    setTimeout(() => {
+        typingText.style.borderRight = 'none';
+    }, 3500);
+}
 
-    // Animation d’intro du logo
-    window.addEventListener('load', () => {
-        const intro = document.getElementById('intro-loader');
+// Animation d’intro du logo
+window.addEventListener('load', () => {
+    const intro = document.getElementById('intro-loader');
+    if (intro) {
         setTimeout(() => {
             intro.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
             setTimeout(() => {
                 intro.style.display = 'none';
             }, 1000);
-        }, 1500); // Durée d'affichage du logo
-    });
-
+        }, 1500);
+    }
+});
