@@ -215,6 +215,29 @@
             background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
             pointer-events: none;
         }
+        /* Effet lumineux sur bouton */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 60%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.btn-glow:hover::before {
+    opacity: 1;
+}
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -274,7 +297,7 @@
 </h1>
                     <p class="text-xl text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="300">Pour donner vie à vos projets en ligne et propulser votre présence digitale.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-                        <a href="#realisations" class="bg-bordeaux hover:bg-black text-white px-8 py-3 rounded-md font-medium transition duration-300 btn-gold" data-aos="zoom-in" data-aos-delay="500">Voir mes réalisations</a>
+                        <a href="#realisations" class="bg-bordeaux hover:bg-black text-white px-8 py-3 rounded-md font-medium transition duration-300 btn-gold btn-glow" data-aos="zoom-in" data-aos-delay="500">Voir mes réalisations</a>
                         <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-bordeaux px-8 py-3 rounded-md font-medium transition duration-300" data-aos="zoom-in" data-aos-delay="600">Me contacter</a>
                     </div>
                 </div>
