@@ -238,6 +238,18 @@
 .btn-glow:hover::before {
     opacity: 1;
 }
+        /* Effet de halo lumineux au survol d'une image */
+.image-glow {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -414,7 +426,7 @@
                 <!-- Projet 1 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="100">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Alpes Performances" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="..." alt="Alpes Performances" class="image-glow w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                         <div class="absolute bottom-0 left-0 p-4">
                             <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
@@ -432,7 +444,7 @@
                 <!-- Projet 2 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Esprit Création Formation" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="..." alt="Alpes Performances" class="image-glow w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                         <div class="absolute bottom-0 left-0 p-4">
                             <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
@@ -450,7 +462,7 @@
                 <!-- Projet 3 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transform transition duration-500 hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
                     <div class="relative overflow-hidden h-48">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rumilly Nettoyage" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="..." alt="Alpes Performances" class="image-glow w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                         <div class="absolute bottom-0 left-0 p-4">
                             <span class="bg-bordeaux text-white text-xs px-2 py-1 rounded-full">Site vitrine</span>
