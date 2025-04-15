@@ -250,6 +250,20 @@
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
+        #chatWindow {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -869,49 +883,49 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
-    </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-<script>
+    <script>
+    // Vanilla Tilt
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
         max: 15,
         speed: 400,
         glare: true,
         "max-glare": 0.3,
     });
-    <script>
-  const chatbotToggle = document.getElementById('chatbotToggle');
-  const chatWindow = document.getElementById('chatWindow');
-  const chatMessages = document.getElementById('chatMessages');
-  const sendMessage = document.getElementById('sendMessage');
-  const chatInput = document.getElementById('chatInput');
-
-  chatbotToggle.addEventListener('click', () => {
-    chatWindow.classList.toggle('hidden');
-  });
-
-  sendMessage.addEventListener('click', () => {
-    const message = chatInput.value.trim();
-    if (message !== '') {
-      const userMessage = document.createElement('div');
-      userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
-      chatMessages.appendChild(userMessage);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      chatInput.value = '';
-
-      // Réponse automatique simple
-      setTimeout(() => {
-        const botReply = document.createElement('div');
-        botReply.innerHTML = `<strong>Bot:</strong> Merci pour votre message ! Je vous répondrai très vite. 😊`;
-        chatMessages.appendChild(botReply);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 800);
-    }
-  });
-
-  chatInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      sendMessage.click();
-    }
-  });
 </script>
+
+<script>
+    // Chatbot
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatMessages = document.getElementById('chatMessages');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatInput = document.getElementById('chatInput');
+
+    chatbotToggle.addEventListener('click', () => {
+        chatWindow.classList.toggle('hidden');
+    });
+
+    sendMessage.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message !== '') {
+            const userMessage = document.createElement('div');
+            userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
+            chatMessages.appendChild(userMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            chatInput.value = '';
+
+            setTimeout(() => {
+                const botReply = document.createElement('div');
+                botReply.innerHTML = `<strong>Bot:</strong> Merci pour votre message ! Je vous répondrai très vite. 😊`;
+                chatMessages.appendChild(botReply);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+        }
+    });
+
+    chatInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            sendMessage.click();
+        }
+    });
 </script>
