@@ -37,3 +37,6 @@ p {
         visibility: hidden;
     }
 }
+#intro-loader {
+    transition: opacity 1s ease;
+}
