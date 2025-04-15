@@ -805,14 +805,12 @@ if (typingText) {
 }
 
 // Animation d’intro du logo
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     const intro = document.getElementById('intro-loader');
     if (intro) {
+        intro.classList.add('opacity-0');
         setTimeout(() => {
-            intro.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
-            setTimeout(() => {
-                intro.style.display = 'none';
-            }, 1000);
-        }, 1500);
+            intro.style.display = 'none';
+        }, 1000); // attendre la transition d'opacité
     }
 });
