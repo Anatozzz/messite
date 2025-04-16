@@ -4,20 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Merci pour votre message | WebÉlégance</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
+
     .title-font {
       font-family: 'Playfair Display', serif;
     }
+
     .bg-bordeaux {
       background-color: #6d1a1a;
     }
+
     .text-bordeaux {
       color: #6d1a1a;
     }
+
     .gold-text {
       color: #d4af37;
     }
