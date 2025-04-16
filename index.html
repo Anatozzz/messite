@@ -805,16 +805,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
         </script>
     
-    <script>
-    // Vanilla Tilt
-    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.3,
-    });
-</script>
+    <!-- ✅ Vanilla Tilt (à charger avant de l’utiliser) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.3,
+    });
+  });
+</script>
 <script>
   const chatbotToggle = document.getElementById('chatbotToggle');
   const chatWindow = document.getElementById('chatWindow');
