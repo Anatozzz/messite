@@ -32,7 +32,9 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 footer {
-  outline: 3px dashed red !important;
-  z-index: 9999 !important;
-  position: relative !important;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 4rem 0;
+  z-index: 10;
+  position: relative;
 }
