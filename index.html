@@ -227,7 +227,7 @@
             </div>
         </div>
     </nav> <!-- Menu mobile déroulant -->
-<div id="mobile-menu" class="md:hidden hidden bg-white shadow-md rounded-lg px-6 py-4 space-y-2">
+<div id="mobile-menu" class="md:hidden hidden bg-white shadow-md rounded-lg px-4 py-6 space-y-4 mt-2">
   <a href="#accueil" class="block text-gray-800 hover:text-bordeaux">Accueil</a>
   <a href="#apropos" class="block text-gray-800 hover:text-bordeaux">À propos</a>
   <a href="#services" class="block text-gray-800 hover:text-bordeaux">Services</a>
@@ -773,7 +773,16 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 mobileMenuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
 });  
+      // Ferme le menu mobile quand un lien est cliqué
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden'); // on enlève aussi le blocage du scroll
+  });
+});
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
