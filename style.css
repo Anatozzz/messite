@@ -30,11 +30,3 @@ p {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
-}
-footer {
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 4rem 0;
-  z-index: 10;
-  position: relative;
-}
