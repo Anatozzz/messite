@@ -1,298 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ✅ Balise de vérification Google -->
-    <meta name="google-site-verification" content="YWoSnm8sLMzFglG0eOCQai0JZC4cp7w0BM_LmrHLBww" />
+  <!-- ✅ Balise de vérification Google -->
+  <meta name="google-site-verification" content="YWoSnm8sLMzFglG0eOCQai0JZC4cp7w0BM_LmrHLBww" />
 
-    <!-- ✅ Balises meta SEO -->
-    <meta name="description" content="WebÉlégance crée des sites web élégants et performants pour les entrepreneurs, artisans et indépendants.">
-    <meta name="keywords" content="création site internet, site vitrine, développeur web, refonte site, freelance Annecy, WebÉlégance">
-    <meta name="author" content="WebÉlégance">
+  <!-- ✅ SEO -->
+  <meta name="description" content="WebÉlégance crée des sites web élégants et performants pour les entrepreneurs, artisans et indépendants." />
+  <meta name="keywords" content="création site internet, site vitrine, développeur web, refonte site, freelance Annecy, WebÉlégance" />
+  <meta name="author" content="WebÉlégance" />
 
-    <!-- ✅ Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="WebÉlégance - Créateur de Sites Web Élégants">
-    <meta property="og:description" content="Création de sites web sur mesure pour booster votre présence en ligne.">
-    <meta property="og:image" content="https://webelegance.netlify.app/assets/preview.jpg">
-    <meta property="og:url" content="https://webelegance.netlify.app">
-    <meta property="og:type" content="website">
+  <!-- ✅ Réseaux sociaux (Open Graph) -->
+  <meta property="og:title" content="WebÉlégance - Créateur de Sites Web Élégants" />
+  <meta property="og:description" content="Création de sites web sur mesure pour booster votre présence en ligne." />
+  <meta property="og:image" content="https://webelegance.netlify.app/assets/preview.jpg" />
+  <meta property="og:url" content="https://webelegance.netlify.app" />
+  <meta property="og:type" content="website" />
 
-    <!-- Ton titre actuel -->
-    <title>Créateur de Sites Web Élégants | WebÉlégance</title>
+  <!-- ✅ Titre -->
+  <title>Créateur de Sites Web Élégants | WebÉlégance</title>
 
-    <!-- Feuilles de style, scripts, etc. -->
-    <script src="https://cdn.tailwindcss.com"></script>
-   
-<link rel="icon" type="image/png" href="favicon.png">
-   
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- ✅ Librairies externes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- ✅ Polices personnalisées -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ✅ Styles personnalisés -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .title-font { font-family: 'Playfair Display', serif; }
+
+    .bg-bordeaux { background-color: #6d1a1a; }
+    .text-bordeaux { color: #6d1a1a; }
+    .border-bordeaux { border-color: #6d1a1a; }
+    .gold-text { color: #d4af37; }
+
+    .hover-gold:hover {
+      color: #d4af37;
+      transition: all 0.3s ease;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(109, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .particles {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .logo-anim {
+      position: relative;
+    }
+
+    .logo-anim::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #d4af37;
+      transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .logo-anim:hover::after {
+      width: 100%;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,32,66.2,0.15,130.61-13.39,185-36.37C443.17,20.39,513.5,6.15,583,2.35c53.55-2.85,106.68,6.34,153,24.69,42.82,16.72,85.9,40.86,128.6,63.41,42.78,22.55,86.7,38.21,132.4,42.36,49.78,4.5,99.76-2.31,147.5-19.66,42.82-15.5,82.6-40.33,116.5-72.53C1193.7,52.25,1203.48,15.54,1200,0Z" fill="%236d1a1a" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%236d1a1a" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%236d1a1a"/></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+      z-index: 1;
+    }
+
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+      transition: left 0.7s ease;
+      z-index: -1;
+    }
+
+    .btn-gold:hover::before {
+      left: 100%;
+    }
+
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 60%);
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .btn-glow:hover::before {
+      opacity: 1;
+    }
+
+    .image-glow {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .image-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+
+    #chatWindow {
+      animation: fadeInUp 0.3s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créateur de Sites Web Élégants | Votre présence en ligne professionnelle</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        
-        .title-font {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .bg-bordeaux {
-            background-color: #6d1a1a;
-        }
-        
-        .text-bordeaux {
-            color: #6d1a1a;
-        }
-        
-        .border-bordeaux {
-            border-color: #6d1a1a;
-        }
-        
-        .hover-gold:hover {
-            color: #d4af37;
-            transition: all 0.3s ease;
-        }
-        
-        .gold-text {
-            color: #d4af37;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(109, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Effet de particules */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background-color: rgba(212, 175, 55, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        
-        /* Animation du logo */
-        .logo-anim {
-            position: relative;
-        }
-        
-        .logo-anim::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: #d4af37;
-            transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        
-        .logo-anim:hover::after {
-            width: 100%;
-        }
-        
-        /* Effet de vague */
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,32,66.2,0.15,130.61-13.39,185-36.37C443.17,20.39,513.5,6.15,583,2.35c53.55-2.85,106.68,6.34,153,24.69,42.82,16.72,85.9,40.86,128.6,63.41,42.78,22.55,86.7,38.21,132.4,42.36,49.78,4.5,99.76-2.31,147.5-19.66,42.82-15.5,82.6-40.33,116.5-72.53C1193.7,52.25,1203.48,15.54,1200,0Z" fill="%236d1a1a" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%236d1a1a" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%236d1a1a"/></svg>');
-            background-size: cover;
-            background-repeat: no-repeat;
-            transform: rotate(180deg);
-            z-index: 1;
-        }
-        
-        /* Animation de texte défilant */
-        .typing-text {
-            border-right: 3px solid #d4af37;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #d4af37 }
-        }
-        
-        /* Effet de flottement */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Effet de survol sur les cartes */
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #6d1a1a, #d4af37);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .service-card:hover::before {
-            opacity: 0.1;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: rotateY(180deg);
-        }
-        
-        .service-icon {
-            transition: transform 0.6s ease;
-        }
-        
-        /* Effet de parallaxe */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Animation du bouton */
-        .btn-gold {
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn-gold::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
-            transition: left 0.7s ease;
-            z-index: -1;
-        }
-        
-        .btn-gold:hover::before {
-            left: 100%;
-        }
-        
-        /* Effet de lumière */
-        .light-effect {
-            position: relative;
-        }
-        
-        .light-effect::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        /* Effet lumineux sur bouton */
-.btn-glow {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
 
-.btn-glow::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 60%);
-    transform: rotate(45deg);
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.btn-glow:hover::before {
-    opacity: 1;
-}
-        /* Effet de halo lumineux au survol d'une image */
-.image-glow {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.image-glow:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-}
-        #chatWindow {
-  animation: fadeInUp 0.3s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-</head>
 <body class="bg-white text-gray-800">
      <!-- 🎯 Arrière-plan 3D -->
   <div id="bg-3d" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2;"></div>
