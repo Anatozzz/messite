@@ -226,15 +226,19 @@
                 </div>
             </div>
         </div>
-    </nav> <!-- Menu mobile déroulant -->
-<div id="mobile-menu" class="md:hidden hidden bg-white shadow-md rounded-lg px-4 py-6 space-y-4 mt-20 z-50 transition-all duration-300 ease-in-out">
-  <a href="#accueil" class="block text-gray-800 hover:text-bordeaux">Accueil</a>
-  <a href="#apropos" class="block text-gray-800 hover:text-bordeaux">À propos</a>
-  <a href="#services" class="block text-gray-800 hover:text-bordeaux">Services</a>
-  <a href="#realisations" class="block text-gray-800 hover:text-bordeaux">Réalisations</a>
-  <a href="#temoignages" class="block text-gray-800 hover:text-bordeaux">Témoignages</a>
-  <a href="#contact" class="block bg-bordeaux text-white text-center py-2 rounded hover:bg-black">Contact</a>
+    </nav> 
+  <!-- Menu mobile amélioré avec overlay -->
+<div id="mobile-menu-wrapper" class="md:hidden fixed inset-0 bg-black bg-opacity-60 hidden z-40">
+  <div id="mobile-menu" class="bg-white w-11/12 max-w-xs p-6 space-y-4 shadow-lg absolute top-20 left-1/2 transform -translate-x-1/2 rounded-lg">
+    <a href="#accueil" class="block text-gray-800 hover:text-bordeaux">Accueil</a>
+    <a href="#apropos" class="block text-gray-800 hover:text-bordeaux">À propos</a>
+    <a href="#services" class="block text-gray-800 hover:text-bordeaux">Services</a>
+    <a href="#realisations" class="block text-gray-800 hover:text-bordeaux">Réalisations</a>
+    <a href="#temoignages" class="block text-gray-800 hover:text-bordeaux">Témoignages</a>
+    <a href="#contact" class="block bg-bordeaux text-white text-center py-2 rounded hover:bg-black">Contact</a>
+  </div>
 </div>
+
 
 
     <!-- Hero Section -->
@@ -769,18 +773,27 @@
         
         // Mobile menu toggle OK
 const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuWrapper = document.getElementById('mobile-menu-wrapper');
 
 mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    mobileMenuWrapper.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
-});  
-      // Ferme le menu mobile quand un lien est cliqué
+});
+
+// Fermer le menu si clic en dehors du menu (sur overlay)
+mobileMenuWrapper.addEventListener('click', (e) => {
+    if (e.target === mobileMenuWrapper) {
+        mobileMenuWrapper.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+});
+
+// Ferme le menu quand un lien est cliqué
 document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    document.body.classList.remove('overflow-hidden'); // on enlève aussi le blocage du scroll
-  });
+    link.addEventListener('click', () => {
+        mobileMenuWrapper.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    });
 });
 
         // Smooth scrolling for navigation links
