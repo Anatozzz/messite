@@ -226,7 +226,16 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> <!-- Menu mobile déroulant -->
+<div id="mobile-menu" class="md:hidden hidden bg-white shadow-md rounded-lg px-6 py-4 space-y-2">
+  <a href="#accueil" class="block text-gray-800 hover:text-bordeaux">Accueil</a>
+  <a href="#apropos" class="block text-gray-800 hover:text-bordeaux">À propos</a>
+  <a href="#services" class="block text-gray-800 hover:text-bordeaux">Services</a>
+  <a href="#realisations" class="block text-gray-800 hover:text-bordeaux">Réalisations</a>
+  <a href="#temoignages" class="block text-gray-800 hover:text-bordeaux">Témoignages</a>
+  <a href="#contact" class="block bg-bordeaux text-white text-center py-2 rounded hover:bg-black">Contact</a>
+</div>
+
 
     <!-- Hero Section -->
     <section id="accueil" class="hero-gradient min-h-screen flex items-center justify-center pt-20 relative ">
@@ -758,13 +767,13 @@
             });
         });
         
-        // Mobile menu toggle (would need additional implementation)
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        mobileMenuButton.addEventListener('click', () => {
-            // This would toggle a mobile menu (not implemented in this example)
-            alert('Menu mobile à implémenter');
-        });
-        
+        // Mobile menu toggle OK
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});  
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
