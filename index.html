@@ -170,28 +170,27 @@
       animation: fadeInUp 0.3s ease;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+  @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
   </style>
 </head>
 
-<body class="bg-white text-gray-800">
   <body class="bg-white text-gray-800">
   <div id="top"></div>
 
      <!-- 🎯 Arrière-plan 3D -->
   <div id="bg-3d" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10;"></div>
 <div id="particles-js" class="particles" style="z-index: -9;"></div>
-
-  <!-- Effet de particules -->
-  <div id="particles-js" class="particles"></div>    
+    
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-6 py-3">
