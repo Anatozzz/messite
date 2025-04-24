@@ -5,34 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pourquoi un site internet fait la différence en Haute-Savoie | WebÉlégance</title>
   <meta name="description" content="Découvrez pourquoi avoir un site internet bien conçu est un atout majeur pour les entreprises et indépendants à Annecy, Thonon, Genève ou La Clusaz." />
-  <link rel="stylesheet" href="https://cdn.tailwindcss.com" />
+
+  <!-- Style & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #f9f9f9;
+      background-color: #f9f9f9;
       color: #111827;
-      line-height: 1.7;
     }
-    h1, h2 {
+    h1, h2, h3 {
       font-family: 'Playfair Display', serif;
-      color: #6d1a1a;
     }
-    .container {
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 3rem 1.25rem;
-    }
-    a {
-      color: #6d1a1a;
-      text-decoration: underline;
-    }
+    .text-bordeaux { color: #6d1a1a; }
+    .bg-bordeaux { background-color: #6d1a1a; }
     .btn-gold {
       background-color: #6d1a1a;
       color: white;
       padding: 0.75rem 2rem;
       border-radius: 9999px;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
     .btn-gold:hover {
       background-color: #000;
@@ -41,55 +34,68 @@
 </head>
 <body>
 
-  <header class="bg-white shadow-md py-6">
-    <div class="container">
-      <h1 class="text-3xl md:text-4xl font-bold">Pourquoi un site internet fait toute la différence en Haute-Savoie</h1>
-      <p class="text-gray-600 mt-2 text-lg">Annecy, Thonon, Cluses, La Clusaz, Genève… une présence locale mais digitale, c’est gagnant.</p>
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-bordeaux">WebÉlégance</a>
+      <a href="blog.html" class="text-bordeaux hover:underline font-medium">← Retour au blog</a>
     </div>
   </header>
 
-  <main class="container bg-white shadow-md rounded-xl p-8 mt-6">
+  <!-- Article -->
+  <main class="max-w-5xl mx-auto px-6 py-20">
+    <article class="bg-white p-10 rounded-xl shadow-lg">
+      <h1 class="text-4xl font-bold text-bordeaux mb-4">Pourquoi un site internet fait toute la différence en Haute-Savoie</h1>
+      <p class="text-gray-600 italic mb-10">Annecy, Thonon, Cluses, La Clusaz, Genève… une présence locale mais digitale, c’est gagnant.</p>
 
-    <section class="space-y-8 text-base md:text-lg">
-      <h2 class="text-2xl font-bold">🌄 La Haute-Savoie : une région dynamique, mais compétitive</h2>
-      <p>Entre lac et montagnes, le bassin annécien attire chaque année de nouveaux commerces, artisans, indépendants, professionnels du tourisme... Dans ce contexte, <strong>un site internet bien conçu</strong> devient un outil stratégique pour se démarquer.</p>
+      <section class="space-y-10 text-base md:text-lg leading-relaxed">
+        <div>
+          <h2 class="text-2xl font-bold text-bordeaux mb-2">🌄 Une région dynamique, mais concurrentielle</h2>
+          <p>Le tissu local en Haute-Savoie est riche et en plein essor. Mais face à une concurrence de plus en plus connectée, <strong>avoir un site internet bien conçu</strong> est la clé pour se démarquer, attirer et convaincre.</p>
+        </div>
 
-      <h2 class="text-2xl font-bold">📱 Visibilité locale, même en ligne</h2>
-      <p>Vos futurs clients recherchent des services en ligne : “plombier Annecy”, “gîte à Thônes”, ou “coach sportif Cluses”. Sans site web, vous passez à côté d’opportunités locales précieuses.</p>
-      <p><strong>Un site bien référencé vous place sur Google, Google Maps, et capte l’attention des clients de la région… avant vos concurrents.</strong></p>
+        <div>
+          <h2 class="text-2xl font-bold text-bordeaux mb-2">📱 Visibilité locale, résultats concrets</h2>
+          <p>Vos futurs clients cherchent sur Google : “coiffeuse à Sevrier”, “plombier Rumilly”, “chalet à louer La Clusaz”. Sans site web, vous êtes invisible. <strong>Un site optimisé vous positionne là où il faut, au bon moment.</strong></p>
+        </div>
 
-      <h2 class="text-2xl font-bold">🎯 Crédibilité & confiance immédiate</h2>
-      <p>À Annecy comme ailleurs, les internautes comparent. Un site rassurant avec vos prestations, photos, témoignages, horaires et coordonnées montre que vous êtes pro, organisé et digne de confiance.</p>
+        <div>
+          <h2 class="text-2xl font-bold text-bordeaux mb-2">🎯 Un outil pour inspirer confiance</h2>
+          <p>Le bouche-à-oreille ne suffit plus. Un site rassurant avec vos prestations, vos avis clients, vos photos, vos horaires : c’est ce qui transforme un curieux en client.</p>
+        </div>
 
-      <h2 class="text-2xl font-bold">📈 Une vitrine qui travaille 24/7</h2>
-      <p>Votre site travaille pour vous, même quand vous dormez :</p>
-      <ul class="list-disc pl-6">
-        <li>Il présente vos services 24h/24</li>
-        <li>Il attire et informe les visiteurs automatiquement</li>
-        <li>Il permet de vous contacter rapidement (email, tel, formulaire)</li>
-      </ul>
+        <div>
+          <h2 class="text-2xl font-bold text-bordeaux mb-2">📈 Disponible 24h/24, 7j/7</h2>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Présente vos services en continu</li>
+            <li>Répond aux questions de vos clients avant qu’ils n’appellent</li>
+            <li>Permet la prise de contact facilement</li>
+          </ul>
+        </div>
 
-      <h2 class="text-2xl font-bold">🌐 Mieux qu’une pub : un investissement durable</h2>
-      <p>Que vous soyez <strong>artisan à Rumilly, commerçant à Thonon</strong> ou <strong>gérant d’un gîte à Sevrier</strong>, un site vous coûte souvent moins cher qu’une simple publicité imprimée… mais reste actif toute l’année.</p>
+        <div>
+          <h2 class="text-2xl font-bold text-bordeaux mb-2">🌐 Bien plus qu’une pub papier</h2>
+          <p>Un site vous appartient, évolue avec vous, et reste accessible partout. <strong>Pour le prix d’une publicité ponctuelle, vous gagnez un atout commercial permanent.</strong></p>
+        </div>
 
-      <blockquote class="border-l-4 border-bordeaux pl-4 italic text-gray-600">
-        "Avoir un site, c’est exister en ligne — même quand la porte de la boutique est fermée."
-      </blockquote>
+        <blockquote class="border-l-4 border-bordeaux pl-4 italic text-gray-600">
+          "En Haute-Savoie, avoir un site, c’est comme avoir une vitrine en vieille ville... mais ouverte au monde entier."
+        </blockquote>
 
-      <h2 class="text-2xl font-bold">🤝 Vous êtes concerné ?</h2>
-      <p>Artisans, indépendants, gérants de chambres d’hôtes ou commerçants de Haute-Savoie… ce site est pensé pour vous. Et il n’a jamais été aussi simple de s’équiper d’un outil moderne, visible et abordable.</p>
+        <div>
+          <h3 class="text-xl font-semibold text-bordeaux mt-8 mb-2">En résumé</h3>
+          <p>Que vous soyez artisan, indépendant, commerçant ou gérant d’un hébergement touristique dans les Alpes, un site internet bien pensé vous permet d’attirer les bons clients, de vous positionner localement, et de valoriser votre savoir-faire.</p>
+        </div>
 
-      <div class="text-center mt-10">
-        <a href="index.html#contact" class="btn-gold">Créer mon site maintenant</a>
-      </div>
-    </section>
-
-    <div class="text-center mt-12">
-      <a href="/blog.html" class="inline-block bg-gray-100 text-bordeaux px-5 py-2 rounded hover:bg-bordeaux hover:text-white transition">← Retour au blog</a>
-    </div>
+        <div class="text-center mt-12">
+          <a href="index.html#contact" class="btn-gold">Créer mon site avec WebÉlégance</a>
+        </div>
+      </section>
+    </article>
   </main>
 
-  <footer class="text-center text-sm text-gray-500 mt-16 py-6">
+  <!-- Footer -->
+  <footer class="bg-bordeaux text-white py-6 mt-20 text-center">
     © 2025 WebÉlégance · Créateur de sites web à Annecy et alentours
   </footer>
 
