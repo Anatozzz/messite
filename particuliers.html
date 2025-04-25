@@ -58,6 +58,15 @@
         .client-logo:hover {
             filter: none;
         }
+        /* Suppression d'une ancienne superposition potentielle */
+.parallax::before,
+.parallax .overlay,
+header::before {
+  content: none !important;
+  background: none !important;
+  display: none !important;
+}
+
     </style>
 </head>
 <body class="text-gray-800">
@@ -317,7 +326,6 @@
 
     <!-- Réalisations Section -->
     <section id="realisations" class="py-20 bg-gray-50 parallax" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="title-font text-3xl md:text-4xl font-bold text-white mb-4">Mes Réalisations</h2>
