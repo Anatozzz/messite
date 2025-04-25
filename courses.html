@@ -101,155 +101,103 @@
         </section>
 
         <!-- Service Categories -->
-        <div class="flex overflow-x-auto mb-8 pb-2 space-x-4 scrollbar-hide">
-            <button class="category-tab active px-4 py-2 whitespace-nowrap" data-category="all">Tous les services</button>
-            <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="practical">🧺 Services pratiques</button>
-            <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="digital">💻 Services numériques</button>
-            <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="other">✨ Autres services</button>
-        </div>
-
-        <!-- Services Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-24">
-            <!-- Service 1 -->
-            <div class="service-card bg-white p-5" data-category="practical">
-                <div class="flex justify-between items-start mb-3">
-  <div class="text-bordeaux text-3xl">
-    <i class="fas fa-shopping-basket"></i>
-  </div>
-  <button onclick="addMessage(this)" class="bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm">
-    +
-  </button>
+<div class="flex overflow-x-auto mb-8 pb-2 space-x-4 scrollbar-hide">
+  <button class="category-tab active px-4 py-2 whitespace-nowrap" data-category="all">Tous les services</button>
+  <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="practical">🧺 Services pratiques</button>
+  <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="digital">💻 Services numériques</button>
+  <button class="category-tab px-4 py-2 whitespace-nowrap" data-category="other">✨ Autres services</button>
 </div>
-<p class="text-green-600 text-xs font-medium hidden" id="added-msg">+1 ajouté</p>
 
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Courses quotidiennes</h3>
-                <p class="text-gray-600 text-sm mb-4">Faites vos courses sans sortir du bureau. Livraison sous 4h.</p>
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-medium text-gray-500">Quantité</span>
-                    <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
-                        <button class="px-2 py-1 text-gray-500 hover:bg-gray-100">-</button>
-                        <span class="px-2 text-sm">1</span>
-                        <button class="px-2 py-1 text-gray-500 hover:bg-gray-100">+</button>
-                    </div>
-                </div>
-            </div>
+<!-- Services Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-24">
+  <!-- Courses quotidiennes -->
+  <div class="service-card bg-white p-5" data-category="practical">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-shopping-basket"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="courses">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Courses quotidiennes</h3>
+    <p class="text-gray-600 text-sm mb-4">Faites vos courses sans sortir du bureau. Livraison rapide.</p>
+  </div>
 
-            <!-- Service 2 -->
-            <div class="service-card bg-white p-5" data-category="practical">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
+  <!-- Impression de documents -->
+  <div class="service-card bg-white p-5" data-category="practical">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-print"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="print">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Impression de documents</h3>
+    <p class="text-gray-600 text-sm mb-4">Impression couleur et livraison rapide.</p>
+  </div>
 
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Impression de documents</h3>
-                <p class="text-gray-600 text-sm mb-4">Impression couleur/nb, reliure et plastification de vos documents.</p>
-                <textarea class="w-full text-xs p-2 border border-gray-200 rounded mt-2" placeholder="Instructions spéciales..."></textarea>
-            </div>
+  <!-- Déplacement véhicule -->
+  <div class="service-card bg-white p-5" data-category="practical">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-car"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="vehicule">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Déplacement véhicule</h3>
+    <p class="text-gray-600 text-sm mb-4">Service de déplacement pour récupération rapide.</p>
+  </div>
 
-            <!-- Service 3 -->
-            <div class="service-card bg-white p-5" data-category="digital">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
+  <!-- Nettoyage pressing -->
+  <div class="service-card bg-white p-5" data-category="practical">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-tshirt"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="pressing">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Nettoyage pressing</h3>
+    <p class="text-gray-600 text-sm mb-4">Dépôt et collecte de vos vêtements nettoyés.</p>
+  </div>
 
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Gestion d'emails</h3>
-                <p class="text-gray-600 text-sm mb-4">Tri, organisation et réponse à vos emails professionnels.</p>
-                <div class="text-xs text-gray-500 mt-3">Disponible de 9h à 18h</div>
-            </div>
+  <!-- Gestion d'emails -->
+  <div class="service-card bg-white p-5" data-category="digital">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-envelope"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="email">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Gestion d'emails</h3>
+    <p class="text-gray-600 text-sm mb-4">Organisation et réponse rapide à vos courriels.</p>
+  </div>
 
-            <!-- Service 4 -->
-            <div class="service-card bg-white p-5" data-category="practical">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
+  <!-- Organisation Drive -->
+  <div class="service-card bg-white p-5" data-category="digital">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-cloud-upload-alt"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="drive">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Organisation Drive</h3>
+    <p class="text-gray-600 text-sm mb-4">Classement et rangement efficace de vos fichiers cloud.</p>
+  </div>
 
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Déplacement véhicule</h3>
-                <p class="text-gray-600 text-sm mb-4">Déplacement pour récupération de colis ou dépannage urgent.</p>
-                <div class="flex items-center justify-between mt-3">
-                    <span class="text-xs text-gray-500">Frais kilométriques supplémentaires</span>
-                </div>
-            </div>
+  <!-- Assistance outils -->
+  <div class="service-card bg-white p-5" data-category="digital">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-question-circle"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="assistance">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Assistance outils</h3>
+    <p class="text-gray-600 text-sm mb-4">Support rapide sur vos outils numériques.</p>
+  </div>
 
-            <!-- Service 5 -->
-            <div class="service-card bg-white p-5" data-category="digital">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="service-toggle sr-only" data-service="drive">
-                        <div class="w-11 h-6 bg-gray-200 rounded-full peer-checked:bg-bordeaux peer-focus:ring-2 peer-focus:ring-bordeaux peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-                    </label>
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Organisation Drive</h3>
-                <p class="text-gray-600 text-sm mb-4">Classement et organisation de vos fichiers sur le cloud.</p>
-                <div class="text-xs text-gray-500 mt-3">Google Drive, OneDrive, Dropbox</div>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="service-card bg-white p-5" data-category="other">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
-
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Prise de RDV</h3>
-                <p class="text-gray-600 text-sm mb-4">Prise de rendez-vous médicaux, coiffeur, etc. selon vos disponibilités.</p>
-                <textarea class="w-full text-xs p-2 border border-gray-200 rounded mt-2" placeholder="Préférences horaires..."></textarea>
-            </div>
-
-            <!-- Service 7 -->
-            <div class="service-card bg-white p-5" data-category="practical">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
-
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Nettoyage pressing</h3>
-                <p class="text-gray-600 text-sm mb-4">Dépôt et récupération de vos vêtements au pressing.</p>
-                <div class="flex items-center justify-between mt-3">
-                    <span class="text-xs text-gray-500">Délai 48h habituellement</span>
-                </div>
-            </div>
-
-            <!-- Service 8 -->
-            <div class="service-card bg-white p-5" data-category="digital">
-                <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <button class="add-to-cart-btn bg-bordeaux text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#5a1515]" data-service="courses">
-  <i class="fas fa-plus text-xs"></i>
-</button>
-
-                </div>
-                <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Assistance outils</h3>
-                <p class="text-gray-600 text-sm mb-4">Aide à l'utilisation des outils numériques de l'entreprise.</p>
-                <div class="text-xs text-gray-500 mt-3">Teams, Excel, PowerPoint, etc.</div>
-            </div>
-        </div>
+  <!-- Prise de RDV -->
+  <div class="service-card bg-white p-5" data-category="other">
+    <div class="flex justify-between items-start mb-3">
+      <div class="text-bordeaux text-3xl"><i class="fas fa-calendar-alt"></i></div>
+      <button class="add-to-cart-btn bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm" data-service="rdv">+</button>
+    </div>
+    <p class="text-green-600 text-xs font-medium hidden added-msg">+1 ajouté</p>
+    <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Prise de RDV</h3>
+    <p class="text-gray-600 text-sm mb-4">Planification rapide de vos rendez-vous personnels et pros.</p>
+  </div>
+</div>
     </main>
 
     <!-- Shopping Cart Sidebar -->
