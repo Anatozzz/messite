@@ -112,14 +112,15 @@
             <!-- Service 1 -->
             <div class="service-card bg-white p-5" data-category="practical">
                 <div class="flex justify-between items-start mb-3">
-                    <div class="text-bordeaux text-3xl">
-                        <i class="fas fa-shopping-basket"></i>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" class="service-toggle sr-only" data-service="courses">
-                        <div class="w-11 h-6 bg-gray-200 rounded-full peer-checked:bg-bordeaux peer-focus:ring-2 peer-focus:ring-bordeaux peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-                    </label>
-                </div>
+  <div class="text-bordeaux text-3xl">
+    <i class="fas fa-shopping-basket"></i>
+  </div>
+  <button onclick="addMessage(this)" class="bg-bordeaux text-white w-8 h-8 flex items-center justify-center rounded-full shadow hover:bg-[#5a1515] transition text-sm">
+    +
+  </button>
+</div>
+<p class="text-green-600 text-xs font-medium hidden" id="added-msg">+1 ajouté</p>
+
                 <h3 class="title-font text-lg font-bold text-bordeaux mb-2">Courses quotidiennes</h3>
                 <p class="text-gray-600 text-sm mb-4">Faites vos courses sans sortir du bureau. Livraison sous 4h.</p>
                 <div class="flex items-center justify-between">
@@ -444,5 +445,10 @@ function sendOrder() {
                 });
             });
         });
-        
+        function addMessage(button) {
+  const msg = button.parentElement.nextElementSibling;
+  msg.classList.remove('hidden');
+  setTimeout(() => msg.classList.add('hidden'), 2000);
+}
+
     </script>
