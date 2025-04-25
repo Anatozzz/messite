@@ -70,21 +70,40 @@ header::before {
     </style>
 </head>
 <body class="text-gray-800">
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="https://webelegance.netlify.app" class="flex items-center">
-                <span class="text-bordeaux title-font text-2xl font-bold">WebÉlégance</span>
-            </a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="https://webelegance.netlify.app" class="hover:text-bordeaux hover-gold transition">Retour à l'accueil</a>
-                <a href="#contact" class="hover:text-bordeaux hover-gold transition">Contact</a>
-            </nav>
-            <button class="md:hidden text-bordeaux">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-    </header>
+    <!-- Header avec menu mobile -->
+<header class="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="https://webelegance.netlify.app" class="flex items-center">
+      <span class="text-bordeaux title-font text-2xl font-bold">WebÉlégance</span>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="https://webelegance.netlify.app" class="hover:text-bordeaux hover-gold transition">Retour à l'accueil</a>
+      <a href="#contact" class="hover:text-bordeaux hover-gold transition">Contact</a>
+    </nav>
+
+    <!-- Bouton Mobile -->
+    <button class="md:hidden text-bordeaux focus:outline-none" id="mobile-toggle">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="bg-white w-10/12 max-w-xs p-6 space-y-6 shadow-lg absolute top-0 right-0 h-full">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-bordeaux font-bold text-xl">Menu</span>
+        <button id="close-mobile-menu" class="text-bordeaux">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+      <a href="https://webelegance.netlify.app" class="block text-gray-800 hover:text-bordeaux">Accueil</a>
+      <a href="#contact" class="block text-gray-800 hover:text-bordeaux">Contact</a>
+    </div>
+  </div>
+</header>
+
 
     <!-- Hero Section -->
     <section class="py-16 md:py-24 bg-gradient-to-r from-white to-gray-50">
@@ -113,79 +132,66 @@ header::before {
         </div>
     </section>
 
-    <!-- Target Audience Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="title-font text-3xl text-center font-bold text-bordeaux mb-12">
-                À qui s'adresse cette offre ?
-            </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                <!-- Profession 1 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Coiffeurs</h3>
-                </div>
-                
-                <!-- Profession 2 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Photographes</h3>
-                </div>
-                
-                <!-- Profession 3 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Gérants de gîtes</h3>
-                </div>
-                
-                <!-- Profession 4 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Thérapeutes</h3>
-                </div>
-                
-                <!-- Profession 5 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Jardiniers</h3>
-                </div>
-                
-                <!-- Profession 6 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-hammer"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Artisans</h3>
-                </div>
-                
-                <!-- Profession 7 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Commerçants</h3>
-                </div>
-                
-                <!-- Profession 8 -->
-                <div class="text-center">
-                    <div class="text-bordeaux text-4xl mb-3">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="title-font font-bold">Indépendants</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Target Audience Section - Version premium -->
+<section class="py-24 bg-[#fefbf3] border-t border-b border-gold">
+  <div class="container mx-auto px-6 max-w-6xl">
+
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="title-font text-4xl md:text-5xl font-bold text-bordeaux mb-6">
+        À qui s'adresse cette offre ?
+      </h2>
+      <p class="text-gray-700 text-lg max-w-2xl mx-auto">
+        Vous êtes indépendant, créatif, ou à la tête d'une petite entreprise ? Ce service est pensé pour vous.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+      
+      <!-- Carte pro -->
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-cut"></i></div>
+        <h3 class="title-font font-semibold">Coiffeurs</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="50">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-camera"></i></div>
+        <h3 class="title-font font-semibold">Photographes</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-home"></i></div>
+        <h3 class="title-font font-semibold">Gérants de gîtes</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="150">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-spa"></i></div>
+        <h3 class="title-font font-semibold">Thérapeutes</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-leaf"></i></div>
+        <h3 class="title-font font-semibold">Jardiniers</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="250">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-hammer"></i></div>
+        <h3 class="title-font font-semibold">Artisans</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-store"></i></div>
+        <h3 class="title-font font-semibold">Commerçants</h3>
+      </div>
+
+      <div class="bg-white text-center p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="350">
+        <div class="text-bordeaux text-4xl mb-3"><i class="fas fa-heart"></i></div>
+        <h3 class="title-font font-semibold">Indépendants</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- Services Section -->
     <section class="py-16 bg-gray-50">
@@ -514,8 +520,25 @@ header::before {
     </footer>
 
     <script>
-        // Simple script for mobile menu toggle (would need implementation)
-        document.querySelector('button.md\\:hidden').addEventListener('click', () => {
-            alert("Menu mobile à implémenter selon les besoins spécifiques");
-        });
-    </script>
+  // Gestion du menu mobile
+  const toggle = document.getElementById("mobile-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const close = document.getElementById("close-mobile-menu");
+
+  // Ouvrir le menu
+  toggle.addEventListener("click", () => {
+    menu.classList.remove("hidden");
+  });
+
+  // Fermer le menu via la croix
+  close.addEventListener("click", () => {
+    menu.classList.add("hidden");
+  });
+
+  // Fermer le menu si clic en dehors
+  menu.addEventListener("click", (e) => {
+    if (e.target === menu) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
