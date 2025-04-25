@@ -437,46 +437,43 @@
 
 
 
-    <!-- Section Logos Clients -->
-<section class="py-20 bg-bordeaux text-white overflow-hidden">
+    <!-- Section Logos Clients (effet statique mais animé) -->
+<section class="py-20 bg-bordeaux text-white">
   <div class="container mx-auto px-6">
-    <div class="text-center mb-12" data-aos="fade-up">
+    <div class="text-center mb-12">
       <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">Ils nous font confiance</h2>
       <p class="text-white/80 max-w-xl mx-auto">
         Des entreprises, indépendants et professionnels locaux accompagnés avec attention et savoir-faire.
       </p>
     </div>
 
-    <!-- Slider logos -->
-    <div class="overflow-hidden">
-      <div class="flex space-x-12 animate-scroll-logo w-[300%]">
-        <!-- Logo 1 -->
-        <img src="https://i.postimg.cc/7PJF3FBG/Image-17-04-2025-a-11-41.jpg" alt="Client 1" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-        <!-- Logo 2 -->
-        <img src="https://i.postimg.cc/tgfr7TGr/Chat-GPT-Image-8-avr-2025-10-35-08.png" alt="Client 2" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-        <!-- Logo 3 -->
-        <img src="https://i.postimg.cc/4dkzrhgT/690.jpg" alt="Client 3" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-        
-        <!-- Doublons pour boucle fluide -->
-        <img src="https://i.postimg.cc/7PJF3FBG/Image-17-04-2025-a-11-41.jpg" alt="Client 1 bis" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-        <img src="https://i.postimg.cc/tgfr7TGr/Chat-GPT-Image-8-avr-2025-10-35-08.png" alt="Client 2 bis" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-        <img src="https://i.postimg.cc/4dkzrhgT/690.jpg" alt="Client 3 bis" class="h-14 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-      </div>
+    <div class="flex flex-wrap justify-center items-center gap-12">
+      <!-- Logo 1 -->
+      <img src="https://i.postimg.cc/7PJF3FBG/Image-17-04-2025-a-11-41.jpg" alt="Client 1"
+           class="h-14 opacity-80 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 floating-logo">
+      <!-- Logo 2 -->
+      <img src="https://i.postimg.cc/tgfr7TGr/Chat-GPT-Image-8-avr-2025-10-35-08.png" alt="Client 2"
+           class="h-14 opacity-80 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 floating-logo">
+      <!-- Logo 3 -->
+      <img src="https://i.postimg.cc/4dkzrhgT/690.jpg" alt="Client 3"
+           class="h-14 opacity-80 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0 floating-logo">
     </div>
   </div>
 </section>
 
-<!-- Animation CSS -->
+<!-- Animation CSS pour effet flottant -->
 <style>
-  @keyframes scrollLogo {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+  @keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-4px); }
+    100% { transform: translateY(0px); }
   }
 
-  .animate-scroll-logo {
-    animation: scrollLogo 25s linear infinite;
+  .floating-logo {
+    animation: float 4s ease-in-out infinite;
   }
 </style>
+
 
 
 
