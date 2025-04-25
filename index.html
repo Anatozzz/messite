@@ -437,22 +437,39 @@
 
 
 
-    <!-- Section Logos Clients (Ajoutée après les témoignages) -->
-<section class="py-20 bg-white">
+    <!-- Section Logos Clients avec scroll horizontal -->
+<section class="py-20 bg-bordeaux text-white overflow-hidden">
   <div class="container mx-auto px-6">
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="title-font text-3xl md:text-4xl font-bold text-bordeaux mb-4">Ils nous font confiance</h2>
-      <p class="text-gray-600 max-w-xl mx-auto">Des entreprises, indépendants et professionnels locaux accompagnés avec attention et savoir-faire.</p>
+    <div class="text-center mb-12">
+      <h2 class="title-font text-3xl md:text-4xl font-bold mb-4">Ils nous font confiance</h2>
+      <p class="max-w-xl mx-auto opacity-90">Des entreprises, indépendants et professionnels locaux accompagnés avec attention et savoir-faire.</p>
     </div>
 
-    <div class="flex flex-wrap justify-center items-center gap-8" data-aos="zoom-in" data-aos-delay="100">
-      <img src="https://via.placeholder.com/140x60?text=Client+1" alt="Client 1" class="h-14 opacity-60 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-      <img src="https://via.placeholder.com/140x60?text=Client+2" alt="Client 2" class="h-14 opacity-60 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-      <img src="https://via.placeholder.com/140x60?text=Client+3" alt="Client 3" class="h-14 opacity-60 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
-      <img src="https://via.placeholder.com/140x60?text=Client+4" alt="Client 4" class="h-14 opacity-60 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+    <div class="relative w-full overflow-hidden">
+      <div class="flex items-center gap-12 animate-scroll-logo whitespace-nowrap">
+        <img src="https://via.placeholder.com/140x60?text=Client+1" class="h-14 opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition duration-300" />
+        <img src="https://via.placeholder.com/140x60?text=Client+2" class="h-14 opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition duration-300" />
+        <img src="https://via.placeholder.com/140x60?text=Client+3" class="h-14 opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition duration-300" />
+        <img src="https://via.placeholder.com/140x60?text=Client+4" class="h-14 opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition duration-300" />
+        <img src="https://via.placeholder.com/140x60?text=Client+1" class="h-14 opacity-80 grayscale hover:grayscale-0" />
+        <img src="https://via.placeholder.com/140x60?text=Client+2" class="h-14 opacity-80 grayscale hover:grayscale-0" />
+      </div>
     </div>
   </div>
+
+  <!-- Animation CSS -->
+  <style>
+    @keyframes scrollLogo {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-scroll-logo {
+      animation: scrollLogo 20s linear infinite;
+    }
+  </style>
 </section>
+
 
     <!-- Témoignages Section -->
     <section id="temoignages" class="py-20 bg-white">
