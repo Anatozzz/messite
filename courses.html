@@ -270,10 +270,36 @@
             
             <div class="border-t border-gray-200 pt-4 mb-4">
                 <textarea class="w-full p-3 border border-gray-200 rounded mb-4 text-sm" placeholder="Ajoutez un commentaire global à votre commande..."></textarea>
+                <form id="orderForm" action="https://formsubmit.co/contactweblegance@gmail.com" method="POST" style="display: none;">
+  <input type="hidden" name="_next" value="https://webelegance.netlify.app/merci.html">
+  <input type="hidden" name="_captcha" value="false">
+  <textarea id="orderDetails" name="message"></textarea>
+</form>
+
                 <button class="btn-gold w-full py-3 font-semibold">
                     <i class="fas fa-check-circle mr-2"></i> Valider ma demande
                 </button>
             </div>
+            <script>
+function sendOrder() {
+    // Construire le message à partir du panier
+    let message = "Nouvelle commande de services :\n\n";
+    cart.forEach((item, index) => {
+        message += `${index + 1}. ${item.title} (Quantité: ${item.quantity})\n`;
+    });
+
+    // Ajouter aussi un éventuel commentaire global
+    const comment = document.querySelector('#cartSidebar textarea').value;
+    if (comment.trim() !== "") {
+        message += `\nCommentaire : ${comment}`;
+    }
+
+    // Remplir la textarea cachée et envoyer le formulaire
+    document.getElementById('orderDetails').value = message;
+    document.getElementById('orderForm').submit();
+}
+</script>
+
             
             <div class="text-xs text-gray-400 text-center mt-4">
                 <p>Nos services sont disponibles du lundi au vendredi de 8h à 19h</p>
@@ -418,4 +444,5 @@
                 });
             });
         });
+        
     </script>
