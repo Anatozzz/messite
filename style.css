@@ -26,7 +26,3 @@ p {
 .card p:last-child {
 	margin-bottom: 0;
 }
-.glass {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
