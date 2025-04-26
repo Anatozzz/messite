@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci pour votre demande - WebÉlégance</title>
+
+  <!-- Polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f8f8, #ffffff);
+      font-family: 'Montserrat', sans-serif;
+      color: #111827;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #6d1a1a;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #d4af37;
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-home {
+      background: #d4af37;
+      color: white;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-home:hover {
+      background: #6d1a1a;
+      box-shadow: 0 0 30px rgba(109, 26, 26, 0.6);
+    }
+
+    .shimmer {
+      background: linear-gradient(90deg, #d4af37 25%, #fff 50%, #d4af37 75%);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 2s infinite;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Merci ✨</h1>
+
+  <p>Votre demande de maquette a bien été envoyée.<br>Notre équipe prépare une première version rapide rien que pour vous !</p>
+
+  <div class="shimmer">
+    WebÉlégance travaille déjà pour vous...
+  </div>
+
+  <a href="index.html" class="btn-home" style="margin-top: 2rem;">
+    🔙 Retour à l'accueil
+  </a>
+
+</body>
+</html>
