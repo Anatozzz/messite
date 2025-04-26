@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer votre maquette gratuite - WebÉlégance</title>
+
+  <!-- Ici tu peux re-injecter ton style global WebÉlégance -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light text-dark">
+
+<section id="formulaire" class="min-h-screen flex items-center justify-center py-20 px-6">
+  <div class="container max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <h1 class="title-font text-4xl text-center text-bordeaux mb-8">Créons votre maquette gratuite ✨</h1>
+
+    <form id="siteForm" class="space-y-6">
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-gray-800 font-semibold mb-2">Votre adresse email :</label>
+        <input type="email" id="email" name="email" required class="w-full border-2 rounded-md p-3" placeholder="exemple@domaine.com">
+      </div>
+
+      <!-- Activité -->
+      <div>
+        <label for="activite" class="block text-gray-800 font-semibold mb-2">Votre activité :</label>
+        <input type="text" id="activite" name="activite" class="w-full border-2 rounded-md p-3" placeholder="Ex : Boulangerie, Coach sportif...">
+      </div>
+
+      <!-- Style -->
+      <div>
+        <label class="block text-gray-800 font-semibold mb-2">Style de site souhaité :</label>
+        <div class="flex flex-wrap gap-4">
+          <label><input type="radio" name="style" value="Épuré" class="mr-2">Épuré</label>
+          <label><input type="radio" name="style" value="Luxe" class="mr-2">Luxe</label>
+          <label><input type="radio" name="style" value="Créatif" class="mr-2">Créatif</label>
+          <label><input type="radio" name="style" value="Corporate" class="mr-2">Corporate</label>
+        </div>
+      </div>
+
+      <!-- Couleur principale -->
+      <div>
+        <label for="couleur" class="block text-gray-800 font-semibold mb-2">Couleur principale :</label>
+        <input type="color" id="couleur" name="couleur" class="w-16 h-10 p-0 border-2 rounded-md">
+      </div>
+
+      <!-- Thème -->
+      <div>
+        <label class="block text-gray-800 font-semibold mb-2">Préférence de thème :</label>
+        <div class="flex gap-6">
+          <label><input type="radio" name="theme" value="Clair" class="mr-2">Clair</label>
+          <label><input type="radio" name="theme" value="Sombre" class="mr-2">Sombre</label>
+        </div>
+      </div>
+
+      <!-- Blog -->
+      <div>
+        <label class="block text-gray-800 font-semibold mb-2">Ajouter un blog ou actualités ?</label>
+        <div class="flex gap-6">
+          <label><input type="radio" name="blog" value="Oui" class="mr-2">Oui</label>
+          <label><input type="radio" name="blog" value="Non" class="mr-2">Non</label>
+        </div>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div>
+        <label class="block text-gray-800 font-semibold mb-2">Lier vos réseaux sociaux ?</label>
+        <div class="flex gap-6">
+          <label><input type="radio" name="socials" value="Oui" class="mr-2">Oui</label>
+          <label><input type="radio" name="socials" value="Non" class="mr-2">Non</label>
+        </div>
+      </div>
+
+      <!-- Ambiance générale -->
+      <div>
+        <label for="ambiance" class="block text-gray-800 font-semibold mb-2">Mots-clés pour l'ambiance (3-5 mots) :</label>
+        <input type="text" id="ambiance" name="ambiance" class="w-full border-2 rounded-md p-3" placeholder="Chaleureux, Élégant, Innovant...">
+      </div>
+
+      <!-- Consentement -->
+      <div class="flex items-start mt-4">
+        <input type="checkbox" id="consent" name="consent" required class="mt-1 mr-2">
+        <label for="consent" class="text-sm text-gray-700">
+          J'accepte l'utilisation d'outils automatiques (IA) pour générer ma maquette. Les informations sont anonymisées et ne seront jamais stockées sur des bases de données.
+        </label>
+      </div>
+
+      <!-- Bouton Soumettre -->
+      <div class="text-center mt-6">
+        <button type="submit" class="bg-gold text-white font-semibold px-8 py-3 rounded-full shadow-md hover:bg-bordeaux hover:text-white transition duration-300">
+          🚀 Recevoir ma maquette
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<script>
+// Génération automatique du prompt
+document.getElementById('siteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const activite = document.getElementById('activite').value;
+  const style = document.querySelector('input[name="style"]:checked')?.value;
+  const couleur = document.getElementById('couleur').value;
+  const theme = document.querySelector('input[name="theme"]:checked')?.value;
+  const blog = document.querySelector('input[name="blog"]:checked')?.value;
+  const socials = document.querySelector('input[name="socials"]:checked')?.value;
+  const ambiance = document.getElementById('ambiance').value;
+
+  const prompt = `
+Créer un site vitrine pour une activité de ${activite}.
+Style : ${style}.
+Couleur principale : ${couleur}.
+Thème : ${theme}.
+Section blog : ${blog}.
+Réseaux sociaux : ${socials}.
+Ambiance générale souhaitée : ${ambiance}.
+Le site doit être moderne, élégant et responsive.
+`;
+
+  console.log("Prompt généré :", prompt);
+
+  // Ici tu peux soit envoyer ce prompt via API, soit afficher un message
+  alert("Merci ! Votre maquette est en cours de génération. Vous la recevrez bientôt à : " + email);
+
+  // Optionnel : envoyer à un serveur avec fetch() ici
+});
+</script>
+
+</body>
+</html>
