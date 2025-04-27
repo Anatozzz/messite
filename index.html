@@ -274,10 +274,78 @@
       border-color: var(--gold);
       box-shadow: 0 0 8px var(--gold);
     }
+    
+:root {
+    --bordeaux: #6d1a1a;
+    --gold: #d4af37;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background-color: white;
+    scroll-behavior: smooth;
+}
+
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bordeaux);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-text {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.splash-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    animation: lightSweep 2s infinite;
+}
+
+@keyframes lightSweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
+  <!-- Splash Screen -->
+<div class="splash-screen" id="splashScreen">
+    <div class="splash-text" id="splashText">WebÉlégance - Conciergerie Digitale</div>
+</div>
+
      <!-- 🎯 Arrière-plan 3D -->
   <div id="bg-3d" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10;"></div>
 <div id="particles-js" class="particles" style="z-index: -9;"></div>
@@ -1006,7 +1074,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
-<script>
+
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -1037,6 +1105,29 @@ document.addEventListener("DOMContentLoaded", () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const splashScreen = document.getElementById('splashScreen');
+    const splashText = document.getElementById('splashText');
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const splashDuration = isMobile ? 1800 : 2200;
+
+    // Effet léger de parallax sur le texte
+    document.addEventListener('mousemove', function(e) {
+        if (!splashScreen.classList.contains('hidden')) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            splashText.style.transform = `translate3d(${x * 10}px, ${y * 10}px, 0)`;
+        }
+    });
+
+    // Disparition automatique du Splash après quelques secondes
+    setTimeout(() => {
+        splashScreen.classList.add('hidden');
+    }, splashDuration);
+});
+
+
 </script>
 
 <!-- Section SEO Local -->
