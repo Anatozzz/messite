@@ -286,10 +286,91 @@ body {
     background-color: white;
     scroll-behavior: smooth;
 }
+    .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bordeaux);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    perspective: 1000px;
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-text {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.splash-text span {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 8px;
+    margin-top: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.splash-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gold-light);
+    transform: translateZ(-20px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.splash-screen:hover .splash-text::before {
+    opacity: 1;
+}
+
+.splash-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
+    transform: translateZ(10px);
+    pointer-events: none;
+}
+
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
+
+  <!-- Splash Screen Épuré -->
+<div class="splash-screen" id="splashScreen">
+    <div class="splash-text" id="splashText">
+        WebÉlégance
+        <span>Conciergerie Digitale</span>
+    </div>
+</div>
+
 
 
      <!-- 🎯 Arrière-plan 3D -->
@@ -1019,7 +1100,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const splashScreen = document.getElementById('splashScreen');
+    const splashText = document.getElementById('splashText');
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const splashDuration = isMobile ? 1800 : 2200;
+    
+    document.addEventListener('mousemove', function(e) {
+        if (!splashScreen.classList.contains('hidden')) {
+            const x = (e.clientX - window.innerWidth / 2) / 100;
+            const y = (e.clientY - window.innerHeight / 2) / 100;
+            
+            splashText.style.transform = `
+                rotateX(${y * 0.5}deg)
+                rotateY(${-x * 0.5}deg)
+                translateZ(${Math.abs(x) + Math.abs(y)}px)
+            `;
+            
+            const intensity = (Math.abs(x) + Math.abs(y)) / 10;
+            splashScreen.style.backgroundColor = `hsl(0, 60%, ${30 - intensity * 5}%)`;
+        }
+    });
+    
+    document.addEventListener('mouseout', function() {
+        splashText.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+        splashScreen.style.backgroundColor = 'var(--bordeaux)';
+    });
+    
+    setTimeout(() => {
+        splashText.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease';
+    }, 100);
+    
+    setTimeout(() => {
+        splashScreen.classList.add('hidden');
+    }, splashDuration);
+});
 </script>
+
 
 
 
