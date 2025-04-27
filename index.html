@@ -357,6 +357,11 @@ body {
     transform: translateZ(10px);
     pointer-events: none;
 }
+    .fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
   </style>
 </head>
@@ -957,8 +962,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 
     setTimeout(() => {
-        splashScreen.classList.add('hidden');
-    }, splashDuration);
+    splashScreen.classList.add('fade-out'); // d'abord fade
+    setTimeout(() => {
+        splashScreen.classList.add('hidden'); // puis caché
+    }, 1000); // après 1 seconde (temps du fade-out)
+}, splashDuration);
+
 });
 
 // Chatbot et interactions
