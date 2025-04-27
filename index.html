@@ -1156,14 +1156,14 @@ document.addEventListener("DOMContentLoaded", () => {
       sendMessage.click();
     }
   });
-</script>
-
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const splashScreen = document.getElementById('splashScreen');
     const splashText = document.getElementById('splashText');
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const splashDuration = isMobile ? 2200 : 2500;
 
+    // Crée les particules dorées
     function createParticles() {
         const particleCount = isMobile ? 20 : 40;
         for (let i = 0; i < particleCount; i++) {
@@ -1192,6 +1192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Parallax effet 3D
     document.addEventListener('mousemove', function(e) {
         if (!splashScreen.classList.contains('hidden')) {
             const x = (e.clientX - window.innerWidth / 2) / 50;
@@ -1213,23 +1214,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Démarre les animations après 100ms
     setTimeout(() => {
         splashText.style.transform = 'translate3d(0, 0, 0) scale(1)';
         splashText.style.opacity = '1';
         createParticles();
     }, 100);
 
+    // Cache le splash après la durée prévue
     setTimeout(() => {
         splashScreen.classList.add('hidden');
+        // Supprime les particules pour nettoyer le DOM
         setTimeout(() => {
             const particles = document.querySelectorAll('.particle');
             particles.forEach(p => p.remove());
         }, 1000);
     }, splashDuration);
 });
-
-
 </script>
+
+
 
 <!-- Section SEO Local -->
 <section class="py-16 bg-gray-50">
