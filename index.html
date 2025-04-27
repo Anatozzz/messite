@@ -844,192 +844,210 @@ body {
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Initialisation des animations
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+  <!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
-        // Initialisation des particules
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {
-                            "value": 80,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#d4af37"
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.5,
-                            "random": false,
-                            "anim": {
-                                "enable": false,
-                                "speed": 1,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            "value": 3,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 40,
-                                "size_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": true,
-                            "distance": 150,
-                            "color": "#d4af37",
-                            "opacity": 0.4,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 2,
-                            "direction": "none",
-                            "random": false,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "grab"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 140,
-                                "line_linked": {
-                                    "opacity": 1
-                                }
-                            },
-                            "bubble": {
-                                "distance": 400,
-                                "size": 40,
-                                "duration": 2,
-                                "opacity": 8,
-                                "speed": 3
-                            },
-                            "repulse": {
-                                "distance": 200,
-                                "duration": 0.4
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            },
-                            "remove": {
-                                "particles_nb": 2
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            }
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Mobile menu toggle OK
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenuWrapper = document.getElementById('mobile-menu-wrapper');
-
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenuWrapper.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
+<script>
+// Initialisation des animations AOS
+AOS.init({
+    duration: 1000,
+    once: true
 });
 
-// Fermer le menu si clic en dehors du menu (sur overlay)
-mobileMenuWrapper.addEventListener('click', (e) => {
-    if (e.target === mobileMenuWrapper) {
-        mobileMenuWrapper.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }
-});
-
-// Ferme le menu quand un lien est cliqué
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenuWrapper.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
+// Initialisation Vanilla Tilt
+document.addEventListener("DOMContentLoaded", function () {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
     });
 });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+// Initialisation des particules
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": { "value": "#d4af37" },
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" },
+                    "polygon": { "nb_sides": 5 }
+                },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#d4af37",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": { "opacity": 1 }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": { "particles_nb": 4 },
+                    "remove": { "particles_nb": 2 }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+});
+
+// Splash Screen
+document.addEventListener('DOMContentLoaded', function() {
+    const splashScreen = document.getElementById('splashScreen');
+    const splashText = document.getElementById('splashText');
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const splashDuration = isMobile ? 1800 : 2200;
+
+    document.addEventListener('mousemove', function(e) {
+        if (!splashScreen.classList.contains('hidden')) {
+            const x = (e.clientX - window.innerWidth / 2) / 100;
+            const y = (e.clientY - window.innerHeight / 2) / 100;
+            splashText.style.transform = `
+                rotateX(${y * 0.5}deg)
+                rotateY(${-x * 0.5}deg)
+                translateZ(${Math.abs(x) + Math.abs(y)}px)
+            `;
+            const intensity = (Math.abs(x) + Math.abs(y)) / 10;
+            splashScreen.style.backgroundColor = `hsl(0, 60%, ${30 - intensity * 5}%)`;
+        }
+    });
+
+    document.addEventListener('mouseout', function() {
+        splashText.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+        splashScreen.style.backgroundColor = 'var(--bordeaux)';
+    });
+
+    setTimeout(() => {
+        splashText.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease';
+    }, 100);
+
+    setTimeout(() => {
+        splashScreen.classList.add('hidden');
+    }, splashDuration);
+});
+
+// Chatbot et interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatMessages = document.getElementById('chatMessages');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatInput = document.getElementById('chatInput');
+
+    chatbotToggle.addEventListener('click', () => {
+        chatWindow.classList.toggle('hidden');
+    });
+
+    sendMessage.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message !== '') {
+            const userMessage = document.createElement('div');
+            userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
+            chatMessages.appendChild(userMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            chatInput.value = '';
+
+            setTimeout(() => {
+                const botReply = document.createElement('div');
+                botReply.innerHTML = `
+                    <strong>Bot:</strong> Merci pour votre message !<br>
+                    📞 <a href="https://wa.me/33681139134" target="_blank" class="text-bordeaux font-bold underline">Discutons sur WhatsApp</a>
+                `;
+                chatMessages.appendChild(botReply);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+        }
+    });
+
+    chatInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            sendMessage.click();
+        }
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove('hidden');
+        } else {
+            backToTopButton.classList.add('hidden');
+        }
+    });
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuWrapper = document.getElementById('mobile-menu-wrapper');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenuWrapper.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+    });
+
+    mobileMenuWrapper.addEventListener('click', (e) => {
+        if (e.target === mobileMenuWrapper) {
+            mobileMenuWrapper.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuWrapper.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // Effet de machine à écrire
-        const typingText = document.querySelector('#dynamic-text');
-        if (typingText) {
-            setTimeout(() => {
-                typingText.style.borderRight = 'none';
-            }, 3500);
-        }
-        // Animation de fondu progressif au scroll
-document.addEventListener("DOMContentLoaded", () => {
+    // Effet fade progressif
     const fadeElements = document.querySelectorAll('[data-fade]');
-    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1037,104 +1055,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 entry.target.classList.remove('opacity-0', 'translate-y-8');
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     fadeElements.forEach(el => {
         el.classList.add('opacity-0', 'translate-y-8', 'transition', 'duration-1000', 'ease-out');
         observer.observe(el);
     });
-});
-        </script>
-    
-    <!-- ✅ Vanilla Tilt (à charger avant de l'utiliser) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.3,
-    });
-  });
-</script>
-<script>
-  const chatbotToggle = document.getElementById('chatbotToggle');
-  const chatWindow = document.getElementById('chatWindow');
-  const chatMessages = document.getElementById('chatMessages');
-  const sendMessage = document.getElementById('sendMessage');
-  const chatInput = document.getElementById('chatInput');
-
-  chatbotToggle.addEventListener('click', () => {
-    chatWindow.classList.toggle('hidden');
-  });
-
-  sendMessage.addEventListener('click', () => {
-    const message = chatInput.value.trim();
-    if (message !== '') {
-      const userMessage = document.createElement('div');
-      userMessage.innerHTML = `<strong>Vous:</strong> ${message}`;
-      chatMessages.appendChild(userMessage);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-      chatInput.value = '';
-
-      // Réponse avec lien WhatsApp
-      setTimeout(() => {
-        const botReply = document.createElement('div');
-        botReply.innerHTML = `
-          <strong>Bot:</strong> Merci pour votre message !<br>
-          📞 <a href="https://wa.me/33681139134" target="_blank" class="text-bordeaux font-bold underline">Discutons sur WhatsApp</a>
-        `;
-        chatMessages.appendChild(botReply);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, 800);
+    // Machine à écrire
+    const typingText = document.querySelector('#dynamic-text');
+    if (typingText) {
+        setTimeout(() => {
+            typingText.style.borderRight = 'none';
+        }, 3500);
     }
-  });
-
-    chatInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      sendMessage.click();
-    }
-  });
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const splashScreen = document.getElementById('splashScreen');
-    const splashText = document.getElementById('splashText');
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const splashDuration = isMobile ? 1800 : 2200;
-    
-    document.addEventListener('mousemove', function(e) {
-        if (!splashScreen.classList.contains('hidden')) {
-            const x = (e.clientX - window.innerWidth / 2) / 100;
-            const y = (e.clientY - window.innerHeight / 2) / 100;
-            
-            splashText.style.transform = `
-                rotateX(${y * 0.5}deg)
-                rotateY(${-x * 0.5}deg)
-                translateZ(${Math.abs(x) + Math.abs(y)}px)
-            `;
-            
-            const intensity = (Math.abs(x) + Math.abs(y)) / 10;
-            splashScreen.style.backgroundColor = `hsl(0, 60%, ${30 - intensity * 5}%)`;
-        }
-    });
-    
-    document.addEventListener('mouseout', function() {
-        splashText.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
-        splashScreen.style.backgroundColor = 'var(--bordeaux)';
-    });
-    
-    setTimeout(() => {
-        splashText.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease';
-    }, 100);
-    
-    setTimeout(() => {
-        splashScreen.classList.add('hidden');
-    }, splashDuration);
 });
 </script>
 
